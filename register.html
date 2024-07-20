@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MIWALLET | Registration</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="WalletImages/logo2.png" type="image/png">
+    <link rel="script" href="toggle.js">
+    <style>
+        .field-icon {
+            float: right;
+            margin-left: -40px;
+            margin-top: -25px;
+            position: relative;
+            z-index: 7;
+        }
+
+        #hide1{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <header class="header_area">
+        <div class="main_menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="index.html" style="max-width: 100px;max-height: 100px;"><img src="WalletImages/logo2.png" width="150px" height="100px" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+                                <li class="nav-item"><a class="nav-link" href="about.html">About</a>
+                                <li class="nav-item active"><a class="nav-link" href="business.html">Business</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!--================ End Header Menu Area =================-->
+</section>
+
+
+
+<!--================ Start About Area =================-->
+<section class="bg-light" style="margin-top: 5rem">
+    <div class="container">
+        <div class="main_title">
+<h2 class="bg-light" style="color:#f8f9fa !important">......</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 col-md-10">
+                <div class="card large_causes shadow-lg" style="padding: 50px; background-color: white">
+                    <h2 style="color:#0096FF">REGISTRATION</h2>
+                    <div class="form-group">
+                        <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 style="color:#0096FF">Personal Details</h3>
+                                <label>Firstname</label>
+                                <input class="form-control" type="text" placeholder="Firstname">
+                                <label style="margin-top: 1rem">Lastname</label>
+                                <input class="form-control" type="text" placeholder="Lastname">
+                                <label style="margin-top: 1rem">Email</label>
+                                <input class="form-control" type="email" placeholder="Email">
+                                <label style="margin-top: 1rem">Phone no</label>
+                                <input class="form-control" type="number" placeholder="Phone number">
+                                <label style="margin-top: 1rem">Password</label>
+                                <input class="form-control" type="password" id="pass" placeholder="Password">
+                                <span onclick="togglePassword()">
+                                    <span id="hide1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <span id="hide2" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                                </span>
+                                <!--====toggle password====-->
+                                <script>
+                                    function togglePassword() {
+                                        //For password input
+                                        const x = document.getElementById("pass");
+                                        const y = document.getElementById("hide1");
+                                        const z = document.getElementById("hide2");
+
+                                        if(x.type === 'password') {
+                                            x.type  = "text"
+                                            y.style.display = "block";
+                                            z.style.display = "none";
+                                        } else {
+                                            x.type  = "password"
+                                            y.style.display = "none";
+                                            z.style.display = "block";
+                                        }
+                                    }
+                                </script>
+                                  <script>
+                                function toggleConfirm() {
+                                    //For password input
+                                    const l = document.getElementById("confirm");
+                                    const m = document.getElementById("hide3");
+                                    const n = document.getElementById("hide4");
+
+                                    if(l.type === 'password') {
+                                        l.type  = "text"
+                                        m.style.display = "block";
+                                        n.style.display = "none";
+                                    } else {
+                                        l.type  = "password"
+                                        m.style.display = "none";
+                                        n.style.display = "block";
+                                    }
+                                }
+                            </script>
+                                <label style="margin-top: 1rem">Confirm password</label>
+                                <input class="form-control" id="confirm" type="password" placeholder="Confirm password">
+                                <span onclick="toggleConfirm()">
+                                    <span id="hide3" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <span id="hide4" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                                </span>
+                                <p id="errorresult" style="color: red"></p>
+                                <script>
+                                    let d = document.querySelector('#pass');
+                                    let e = document.querySelector('#confirm');
+                                    let res = document.querySelector('#errorresult');
+
+                                    function checkPass() {
+                                        res.innerText = d.value === e.value ? '' : 'Passwords do not match';
+                                    }
+                                    d.addEventListener('keyup', () => {
+                                        if (e.value.length !== 0) checkPass()
+                                    })
+
+                                    e.addEventListener('keyup', checkPass);
+
+
+                                </script>
+                                <label style="margin-top: 1rem">National ID</label>
+                                <input class="form-control" type="text" placeholder="National ID">
+                            </div>
+                            <div class="col-md-6">
+                                <h3 style="color:#0096FF">Business Details</h3>
+                                <label>Business name</label>
+                                <input class="form-control" type="text" placeholder="Business name">
+                                <label style="margin-top: 1rem">Registration date</label>
+                                <input class="form-control" type="date">
+                                <label style="margin-top: 1rem">Business Certificate</label>
+                                <input class="form-control" type="file">
+
+                                <div style="margin-top: 3rem">
+                                    <label style="margin-top: 1rem">Business Category</label>
+                                    <select class="form-control" style="width: 100%">
+                                        <option class="disabled" selected disabled>Select Category</option>
+                                        <option>Electronics</option>
+                                        <option>Fashion</option>
+                                        <option>General Dealer</option>
+                                        <option>Retailer</option>
+                                    </select>
+                                </div>
+                                <div style="margin-top: 2.5rem">
+                                    <label style="margin-top: 1rem">Select Country</label>
+                                        <select class="form-control" style="width: 100%">
+                                            <option class="disabled" selected disabled>Select Country</option>
+                                            <option>Malawi</option>
+                                            <option>South Africa</option>
+                                            <option>Tanzania</option>
+                                            <option>Zambia</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-lg" style="margin-left: auto;margin-right: auto; margin-top: 1rem; width: 40%; display: block" value="Register">Register</button>
+                            </div>
+                        </div>
+                        </form>
+                        <div class="col-md-12">
+                            <p class="text-center">Already have an account? <a href="login.html">login here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</section>
+<!--================ End About Area =================-->
+<footer>
+    <div class="footer-area">
+        <div class="container">
+            <div class="row section_gap">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget tp_widgets">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <img src="WalletImages/logo2.png" width="190px" height="100px" alt="logo2">
+                            </a>
+                            <p>
+                            <p>
+                                Financial access for everyone
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget tp_widgets">
+                        <h4 class="footer_title">Quick Links</h4>
+                        <ul class="list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="business.html">Business</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-footer-widget tp_widgets">
+                        <h4 class="footer_title">Contact Us</h4>
+                        <div class="ml-40">
+                            <p class="sm-head">
+                                <span class="fa fa-phone"></span>
+                                Phone Number
+                            </p>
+                            <p>
+                                +265 991 448 707
+                            </p>
+
+                            <p class="sm-head">
+                                <span class="fa fa-envelope"></span>
+                                Email
+                            </p>
+                            <p>
+                                ronnex@miwalletmw.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row d-flex">
+                <p class="col-lg-12 footer-text text-center">
+                    MIWALLET LTD &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+            </div>
+        </div>
+    </div>
+</footer>
+<!--================ End footer Area  =================-->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.ajaxchimp.min.js"></script>
+<script src="js/mail-script.js"></script>
+<script src="js/countdown.js"></script>
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="js/gmaps.min.js"></script>
+<script src="js/theme.js"></script>
+</body>
+</html>
